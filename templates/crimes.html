@@ -1,15 +1,29 @@
 {% extends "base.html" %}
 {% block title %}
-{{block.super}}: Musician Listing
+{{block.super}}: Crime Listing
 {% endblock %}
 
 {% block content %}
 <h1>Crimes</h1>
 <ul>
+    <div>
+        <p>Total Number of Reported Crimes: {{ total_crimes }}</p>
+    </div>
+        <!-- Location-wise crime counts -->
+        <h2>Location-wise Crime Counts</h2>
+        <ul>
+            {% for location_count in crime_counts %}
+                <li>
+                    Location: {{ location_count.location }}<br>
+                    Total Crimes: {{ location_count.total_crimes }}<br>
+                </li>
+            {% endfor %}
+        </ul>
 {% for crime in crimes %}
-<li> <a href="{% url 'crime' crime.id %}"> #1
-{{musician.date}}, {{musician.time}}
-</a> </li>
+<li> <a href="{% url 'crime' crime.id %}"> 
+    Location: {{ crime.location }}<br></a>
+    Occurrence: {{ crime.occur }}<br>
+ </li>
 {% empty %}
 <li> <i>No Crimes Yet</i> </li>
 {% endfor %}
@@ -17,5 +31,5 @@
 
 
 <!-- Create Crime Button -->
-<a href="{% url 'create_crime' %}" class="btn btn-primary">Create Crime</a>
+<a href="{% url 'create_crime' %}" class="btn btn-primary">Report Crime</a>
 {% endblock content %}

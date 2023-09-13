@@ -6,7 +6,8 @@ class Crime(models.Model):
     date = models.DateField()
     time = models.TimeField()
     location = models.CharField(max_length=50)
-    occurence = models.CharField(max_length=500)
+    
+    occur = models.CharField(max_length=500)
     action = models.CharField(max_length=500)
     type = models.CharField(max_length=50)
     # attachments = models.

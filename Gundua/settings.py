@@ -38,7 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home',
+    # 'django_forms_boostrap',
+    # 'boostrap_modal_forms',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -69,7 +74,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Gundua.wsgi.application'
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
