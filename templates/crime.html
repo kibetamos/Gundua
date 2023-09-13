@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}
+{{block.super}}: Crime Details
+{% endblock %}
+{% block content %}
+<h1>{{crime.type}} {{crime.date}}</h1>
+<p> Was born {{crime.date}}. </p>
+{% endblock content %}
