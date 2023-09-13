@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+{{block.super}}: Musician Listing
+{% endblock %}
+
+{% block content %}
+<h1>Crimes</h1>
+<ul>
+{% for crime in crimes %}
+<li> <a href="{% url 'crime' crime.id %}"> #1
+{{musician.date}}, {{musician.time}}
+</a> </li>
+{% empty %}
+<li> <i>No Crimes Yet</i> </li>
+{% endfor %}
+</ul>
+
+
+<!-- Create Crime Button -->
+<a href="{% url 'create_crime' %}" class="btn btn-primary">Create Crime</a>
+{% endblock content %}

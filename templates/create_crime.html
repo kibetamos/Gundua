@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}Create Crime{% endblock %}
+
+{% block content %}
+<h1>Create a New Crime</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-primary">Create Crime</button>
+</form>
+<a href="{% url 'crime_list' %}" class="btn btn-secondary">Back to Crime List</a>
+{% endblock %}
