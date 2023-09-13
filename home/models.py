@@ -14,7 +14,7 @@ class Crime(models.Model):
     def __str__(self):
         return f"Crime(id={self.id}, type={self.type} )"
 
-class person(models.Model):
+class Person(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     occupation = models.CharField(max_length=50)
