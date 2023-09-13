@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpResponse 
 
 
-def credits(request): 
+def crimes(request): 
     content = "Nicky\nYour Name" 
         
     return HttpResponse(content, content_type="text/plain")
