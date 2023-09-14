@@ -4,7 +4,7 @@ from .models import Crime  # Import your Crime model
 # from .forms import CrimeForm  # Import a form for creating crimes if you have one
 # Create your views here.
 # from django.http import HttpResponse 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import redirect, render, get_object_or_404
 from .forms import CrimeForm
 from .models import Crime
 
@@ -12,8 +12,9 @@ def create_crime(request):
     if request.method == 'POST':
         form = CrimeForm(request.POST)
         if form.is_valid():
-            new_crime = form.save()
-            return render(request,'crime_detail', crime_id=new_crime.id)  # Redirect to the crime detail page
+            form.save()
+            # new_crime = form.save()
+            return redirect('/crimes/')  # Redirect to the crime detail page
     else:
         form = CrimeForm()
 
@@ -39,6 +40,7 @@ def crimes(request):
         
     #     }
     crimes = Crime.objects.all()
+    
     total_crimes = crimes.count()
     return render(request, 'crimes.html', {'crimes': crimes, 'total_crimes': total_crimes, 'crime_counts': crime_counts})
     # return render(request, "crimes.html",  data,{'total_crimes': total_crimes})
