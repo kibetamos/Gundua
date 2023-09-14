@@ -35,10 +35,6 @@ def crimes(request):
     # Aggregate the count of crimes for each unique location
     crime_counts = Crime.objects.values('location').annotate(total_crimes=Count('location'))
 
-    # data = {
-    #     'crimes':Crime.objects.all().order_by('date'),#1
-        
-    #     }
     crimes = Crime.objects.all()
     
     total_crimes = crimes.count()
